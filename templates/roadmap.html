@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .roadmap-wrapper { max-width: 900px; margin: 20px auto; padding: 20px; }
+    .page-title { text-align:center; font-size:28px; margin-bottom:25px; font-weight:700; }
+    .card { background:white; padding:24px; border-radius:16px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+    .card h2 { margin-top:0; font-size:18px; margin-bottom:15px; }
+    .badge { background:#eef2ff; color:#4338ca; padding:7px 14px; border-radius:20px; margin:5px; display:inline-block; font-size:13px; font-weight:500; }
+    .badge.missing { background:#fef2f2; color:#dc2626; }
+    .roadmap-list li, .interview-list li { margin:10px 0; line-height:1.6; color:#374151; }
+    .back-btn { display:inline-block; background:#6366f1; color:white; padding:12px 28px; border-radius:10px; text-decoration:none; font-weight:600; }
+    .back-btn:hover { background:#4f46e5; }
+</style>
+
+<div class="roadmap-wrapper">
+    <h1 class="page-title">🎯 Your Career Roadmap</h1>
+    
+    <div class="card">
+        <h2>✅ Your Skills</h2>
+        {% for skill in data.skills %}
+            <span class="badge">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>❌ Missing Skills</h2>
+        {% for skill in data.missing_skills %}
+            <span class="badge missing">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>🗺️ Step-by-Step Roadmap</h2>
+        <ol class="roadmap-list">
+        {% for step in data.roadmap %}
+            <li>{{ step }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>💬 Interview Questions</h2>
+        <ul class="interview-list">
+        {% for q in data.interview_questions %}
+            <li>{{ q }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

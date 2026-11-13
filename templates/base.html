@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Copilot</title>
+    <!-- LORA FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #f8f9fa; 
+            margin: 0; 
+            padding: 0;
+        }
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 75px;
+            position: relative;
+        }
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #0d6efd;
+            letter-spacing: 1px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+            z-index: 1;
+        }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .nav-links a:hover { color: #0d6efd; }
+
+        .card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            margin: 20px auto; 
+            max-width: 800px; 
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border-radius: 8px; 
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        button { 
+            background: #0d6efd; 
+            color: white; 
+            padding: 12px; 
+            border: none; 
+            border-radius: 8px; 
+            width: 100%; 
+            font-weight: bold; 
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo"> AI CAREER COPILOT 🚀</div>
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div style="padding: 20px;">
+    {% block content %}{% endblock %}
+</div>
+
+<p style="text-align: center; color: #888; padding: 20px;">@2026 AI Career Copilot</p>
+
+</body>
+</html>

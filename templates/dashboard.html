@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.main-card{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  max-width:900px;
+  width:95%;
+  margin:20px auto;
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+.main-card h2{text-align:center;color:#2a5bd7;font-size:32px}
+.main-card h3{text-align:center}
+textarea{
+  width:100%;
+  min-height:180px;
+  padding:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+  box-sizing:border-box;
+}
+input[type="text"], input[type="file"]{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+  box-sizing:border-box;
+}
+button{
+  width:100%;
+  padding:15px;
+  background:#2a5bd7;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:15px;
+}
+button:hover{background:#1e45a8}
+</style>
+
+<div class="main-card">
+    <h2>WELCOME USER !</h2>
+    <h3>RESUME ANALYZER</h3>
+
+    <form action="/analyze" method="POST" enctype="multipart/form-data">
+        <label><b>Paste your resume text:</b></label>
+        <textarea name="resume_text" placeholder="Paste your resume text here..."></textarea>
+        
+        <p style="text-align:center;margin:15px 0"><b>OR</b></p>
+        
+        <label><b>Upload file (PDF/DOCX):</b></label>
+        <input type="file" name="file" accept=".pdf,.doc,.docx">
+        
+        <label><b>What do you want to become?</b></label>
+        <input type="text" name="role" placeholder="e.g. Software Engineer, Data Scientist" required>
+        
+        <button type="submit">Analyze Resume</button>
+    </form>
+</div>
+{% endblock %}

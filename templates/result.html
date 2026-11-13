@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="background:white;padding:25px;border-radius:16px;max-width:850px;margin:auto">
+<h2 style="color:#2a5bd7;text-align:center">RESUME ANALYZER</h2>
+<h3 style="text-align:center">Resume Analysis Report For: {{ role }}</h3>
+
+<h4>✅ Your Existing Skills</h4>
+<ul>{% for s in result.skills %}<li>{{ s }}</li>{% endfor %}</ul>
+
+<h4>❌ Missing Skills for {{ role }}</h4>
+<ul>{% for s in result.missing_skills %}<li>{{ s }}</li>{% endfor %}</ul>
+
+<h4>📖 Personalized Roadmap</h4>
+<ol>{% for r in result.roadmap %}<li>{{ r }}</li>{% endfor %}</ol>
+
+<h4>❓ Interview Questions</h4>
+<ol>{% for q in result.interview_questions %}<li>{{ q }}</li>{% endfor %}</ol>
+
+<h4>⚖️ Resume Match for {{ role }}</h4>
+{% set score = result.match_percentage %}
+<p><b>Score: {{ score }} / 100</b></p>
+<div style="background:#e5e7eb;border-radius:10px;overflow:hidden">
+<progress value="{{ score }}" max="100" style="width:100%;height:22px"></progress>
+<p style="text-align:center">{{ score }}% Match</p>
+</div>
+
+<h4>🎯 AI Feedback</h4>
+<p style="background:#f9fafb;padding:15px;border-radius:8px;border-left:4px solid #2a5bd7">{{ result.feedback }}</p>
+
+<div style="text-align:center;margin-top:20px">
+<a href="/dashboard"><button>Back to Dashboard</button></a>
+<a href="/history"><button>View History</button></a>
+</div>
+</div>
+{% endblock %}
